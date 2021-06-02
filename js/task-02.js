@@ -26,7 +26,7 @@ const ingredients = [
 const addLiToUl = arrayOfItems => {
   // console.log(arrayOfItems);
   // console.log(document.createElement('li'));
-  ul.append(
+  ingredientsRef.append(
     ...arrayOfItems.map(itemName => {
       const li = document.createElement('li');
       li.textContent = itemName;
@@ -35,7 +35,7 @@ const addLiToUl = arrayOfItems => {
   );
 };
 
-const ul = document.querySelector('ul');
+const ingredientsRef = document.querySelector('ul#ingredients');
 // console.log(ul);
 
 addLiToUl(ingredients);
