@@ -16,14 +16,28 @@ const incrementBtn = document.querySelector('button[data-action="increment"]');
 
 let counterValue = 0;
 
-const increment = event => {
-  counterValue += 1;
-  updateInterface();
-  logMessage(event);
-};
+// const increment = event => {
+//   counterValue += 1;
+//   updateInterface();
+//   logMessage(event);
+// };
 
-const decrement = event => {
-  counterValue -= 1;
+// const decrement = event => {
+//   counterValue -= 1;
+//   updateInterface();
+//   logMessage(event);
+// };
+
+const handleClick = event => {
+  switch (event.currentTarget.dataset.action) {
+    case 'increment':
+      counterValue += 1;
+      break;
+
+    case 'decrement':
+      counterValue -= 1;
+      break;
+  }
   updateInterface();
   logMessage(event);
 };
@@ -43,7 +57,8 @@ const capitalize = word =>
       index ? letter.toLowerCase() : letter.toUpperCase(),
     )
     .join('');
+
 const updateInterface = () => (counterValueRef.textContent = counterValue);
 
-decrementBtn.addEventListener('click', decrement);
-incrementBtn.addEventListener('click', increment);
+decrementBtn.addEventListener('click', handleClick);
+incrementBtn.addEventListener('click', handleClick);

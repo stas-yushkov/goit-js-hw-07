@@ -3,3 +3,8 @@
 
 // <input type="text" placeholder="Ваше имя?" id="name-input" />
 // <h1>Привет, <span id="name-output">незнакомец</span>!</h1>
+
+const inputNameRef = document.querySelector('input#name-input');
+console.log('🚀 ~  inputNameRef', inputNameRef);
+const outputNameRef = document.querySelector('span#name-output');
+console.log('🚀 ~  outputNameRef', outputNameRef);
