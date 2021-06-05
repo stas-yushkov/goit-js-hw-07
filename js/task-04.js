@@ -9,3 +9,41 @@
 //   <span id="value">0</span>
 //   <button type="button" data-action="increment">+1</button>
 // </div>
+
+const counterValueRef = document.querySelector('span#value');
+const decrementBtn = document.querySelector('button[data-action="decrement"]');
+const incrementBtn = document.querySelector('button[data-action="increment"]');
+
+let counterValue = 0;
+
+const increment = event => {
+  counterValue += 1;
+  updateInterface();
+  logMessage(event);
+};
+
+const decrement = event => {
+  counterValue -= 1;
+  updateInterface();
+  logMessage(event);
+};
+
+const logMessage = event => {
+  console.log(
+    `${capitalize(event.currentTarget.dataset.action)} ${
+      event.currentTarget.type
+    } generates ${event.type} event. Current counter value = ${counterValue}`,
+  );
+};
+
+const capitalize = word =>
+  word
+    .split('')
+    .map((letter, index) =>
+      index ? letter.toLowerCase() : letter.toUpperCase(),
+    )
+    .join('');
+const updateInterface = () => (counterValueRef.textContent = counterValue);
+
+decrementBtn.addEventListener('click', decrement);
+incrementBtn.addEventListener('click', increment);
