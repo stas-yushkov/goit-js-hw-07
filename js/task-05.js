@@ -5,6 +5,14 @@
 // <h1>Привет, <span id="name-output">незнакомец</span>!</h1>
 
 const inputNameRef = document.querySelector('input#name-input');
-console.log('🚀 ~  inputNameRef', inputNameRef);
 const outputNameRef = document.querySelector('span#name-output');
-console.log('🚀 ~  outputNameRef', outputNameRef);
+
+const updateValue = e => {
+  if (e.target.value.trim()) {
+    outputNameRef.textContent = e.target.value;
+  } else {
+    outputNameRef.textContent = 'незнакомец';
+  }
+};
+
+inputNameRef.addEventListener('input', updateValue);
