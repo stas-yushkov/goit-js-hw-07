@@ -1,18 +1,24 @@
-// Задание 5
-// Напиши скрипт который, при наборе текста в инпуте input#name-input (событие input), подставляет его текущее значение в span#name-output. Если инпут пустой, в спане должна отображаться строка 'незнакомец'.
+// Задание 6
+// Напиши скрипт, который бы при потере фокуса на инпуте, проверял его содержимое на правильное количество символов.
 
-// <input type="text" placeholder="Ваше имя?" id="name-input" />
-// <h1>Привет, <span id="name-output">незнакомец</span>!</h1>
+// <input
+//   type="text"
+//   id="validation-input"
+//   data-length="6"
+//   placeholder="Введи 6 символов"
+// />
+// Сколько символов должно быть в инпуте, указывается в его атрибуте data-length.
+// Если введено подходящее количество, то border инпута становится зеленым, если неправильное - красным.
+// Для добавления стилей, используй CSS-классы valid и invalid.
 
-const inputNameRef = document.querySelector('input#name-input');
-const outputNameRef = document.querySelector('span#name-output');
+// #validation-input {
+//   border: 3px solid #bdbdbd;
+// }
 
-const updateValue = e => {
-  if (e.target.value.trim()) {
-    outputNameRef.textContent = e.target.value;
-  } else {
-    outputNameRef.textContent = 'незнакомец';
-  }
-};
+// #validation-input.valid {
+//   border-color: #4caf50;
+// }
 
-inputNameRef.addEventListener('input', updateValue);
+// #validation-input.invalid {
+//   border-color: #f44336;
+// }
